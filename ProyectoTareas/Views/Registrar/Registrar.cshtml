@@ -1,0 +1,109 @@
+﻿@model ProyectoTareas.Models.ViewModels.EditarTareaViewModel
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Tarea</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Estilos/EstilosRegistrar.css" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- Barra de Navegación -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index","Index")">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Registrar","Registrar")">Registrar Tareas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Consultar","Consultar")">Consultar Tareas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Administrar","Administrar")">Administrar Tareas</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Formulario -->
+    <div class="container">
+        <h2>Registrar Tarea</h2>
+        <br />
+        <br />
+        <form method="post">
+            <div class="row justify-content-center">
+
+                <div class="col-md-3 form-group">
+                    <label>Título</label>
+                    <input type="text" class="form-control input-custom" name="txtTitulo" placeholder="Ingrese título">
+                </div>
+                <div class="col-md-3 form-group">
+                    <label>Descripción</label>
+                    <input type="text" class="form-control input-custom" name="txtDescripcion" placeholder="Ingrese descripción">
+                </div>
+                <div class="col-md-3 form-group">
+                    <label for="FechaLimite" class="form-label">Fecha Límite</label>
+                    <input type="date" class="form-control" name="dateFechaLimite"
+                           value="" required>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-3 form-group">
+                    <label>Categoría</label>
+                    <select class="form-control input-custom" name="lsCategoria">
+                        <option>Seleccione</option>
+                        @foreach (var categoria in Model.Categorias)
+                        {
+                            <option value="@categoria.Id">@categoria.Nombre</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-md-3 form-group">
+                    <label>Estado</label>
+                    <select class="form-control input-custom" name="lsEstado">
+                        <option>Seleccione</option>
+                        @foreach (var estado in Model.Estados)
+                        {
+                            <option value="@estado.Id">@estado.Nombre</option>
+                        }
+
+                    </select>
+                </div>
+                <div class="col-md-3 form-group">
+                    <label>Prioridad</label>
+                    <select class="form-control input-custom" name="lsPriodidad">
+
+                        <option>Seleccione</option>
+                        @foreach (var prioridad in Model.Prioridades)
+                        {
+                            <option value="@prioridad.Id">@prioridad.Nombre</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-custom mt-3">Registrar</button>
+        </form>
+</div>
+    
+    @if (TempData["Mensaje"] != null)
+    {
+        var mensaje = TempData["Mensaje"].ToString();
+        var tipo = TempData["MensajeTipo"].ToString();
+
+        <div class="alert alert-@tipo" role="alert">
+            @mensaje
+        </div>
+    }
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

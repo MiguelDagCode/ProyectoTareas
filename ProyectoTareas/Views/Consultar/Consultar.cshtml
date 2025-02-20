@@ -1,0 +1,132 @@
+﻿@model ProyectoTareas.Models.ViewModels.EditarTareaViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Tarea</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Estilos/EstilosConsultar.css" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- Barra de Navegación -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index","Index")">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Registrar","Registrar")">Registrar Tareas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Consultar","Consultar")">Consultar Tareas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Administrar","Administrar")">Administrar Tareas</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Consultar Tarea</h2>
+
+        <form method="post">
+            <div class="row mt-4">
+                <div class="col-md-4 form-group">
+                    <h4>Título</h4>
+                    <input type="text" class="form-control" name="Titulo" placeholder="Ingrese el título">
+                </div>
+                <div class="col-md-4 form-group">
+                    <h4>Descripción</h4>
+                    <input type="text" class="form-control" name="Descripcion" placeholder="Ingrese la descripción">
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="EstadoId" class="form-label">Estado</label>
+                <select class="form-select" name="EstadoId">
+                    <option value="" disabled selected>Seleccionar Estado</option>
+                    @foreach (var estado in Model.Estados)
+                    {
+                        <option value="@estado.Id">@estado.Nombre</option>
+                    }
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="PrioridadId" class="form-label">Prioridad</label>
+                <select class="form-select" name="PrioridadId">
+                    <option value="" disabled selected>Seleccionar Prioridad</option>
+                    @foreach (var prioridad in Model.Prioridades)
+                    {
+                        <option value="@prioridad.Id">@prioridad.Nombre</option>
+                    }
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="CategoriaId" class="form-label">Categoría</label>
+                <select class="form-select" name="CategoriaId">
+                    <option value="" disabled selected>Seleccionar Categoría</option>
+                    @foreach (var categoria in Model.Categorias)
+                    {
+                        <option value="@categoria.Id">@categoria.Nombre</option>
+                    }
+                </select>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-custom">Consultar</button>
+            </div>
+        </form>
+
+        @if (Model.Tareas != null && Model.Tareas.Count > 0)
+        {
+            <table class="table table-striped mt-4">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Descripción</th>
+                        <th>Fecha Límite</th>
+                        <th>Estado</th>
+                        <th>Prioridad</th>
+                        <th>Categoría</th>
+                        <th>Fecha de Creación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var tarea in Model.Tareas)
+                    {
+                        <tr>
+                            <td>@tarea.Id</td>
+                            <td>@tarea.Titulo</td>
+                            <td>@tarea.Descripcion</td>
+                            <td>@tarea.FechaLimite</td>
+                            <td>@tarea.EstadoId.Nombre</td>
+                            <td>@tarea.PrioridadId.Nombre</td>
+                            <td>@tarea.CategoriaId.Nombre</td>
+                            <td>@tarea.FechaCreacion</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p class="alert alert-warning">No se encontraron tareas con los criterios de búsqueda.</p>
+        }
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

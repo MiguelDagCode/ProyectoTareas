@@ -1,0 +1,56 @@
+﻿body {
+    background-color: white;
+    font-family: "Arial", sans-serif;
+}
+
+.navbar {
+    background-color: #002147;
+}
+
+.navbar-nav .nav-link {
+    color: white ;
+    margin: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+  .navbar-nav .nav-link:hover {
+        color: yellow;
+  }
+
+
+.container {
+    max-width: 80%;
+    margin: auto;
+    padding-top: 20px;
+}
+
+h2, h4 {
+    font-weight: bold;
+    color: #3D3B31;
+    text-align: center;
+}
+
+.form-control, .form-select {
+    border-radius: 30px;
+    text-align: center;
+    border: 2px solid black;
+    font-weight: bold;
+    color: #6B6B6B;
+}
+
+.btn-custom {
+    background-color: #002147;
+    color: white;
+    border-radius: 30px;
+    font-weight: bold;
+    width: 200px;
+}
+
+    .btn-custom:hover {
+        background-color: #001833;
+    }
+
+.form-group {
+    text-align: center;
+}

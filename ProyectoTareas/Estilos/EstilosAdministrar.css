@@ -1,0 +1,93 @@
+﻿body {
+    background-color: white;
+    font-family: "Arial", sans-serif;
+}
+
+.navbar {
+    background-color: #002147;
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+    margin: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+    .navbar-nav .nav-link:hover {
+        color: yellow !important;
+    }
+
+.container {
+    max-width: 80%;
+    margin: auto;
+    padding-top: 20px;
+}
+
+h2, h4 {
+    font-weight: bold;
+    color: #3D3B31;
+}
+
+.form-control {
+    border-radius: 30px;
+    text-align: center;
+    border: 2px solid black;
+    font-weight: bold;
+    color: #6B6B6B;
+    width: 300px;
+}
+
+.btn-custom {
+    background-color: #002244;
+    color: white;
+    border-radius: 30px;
+    font-weight: bold;
+    width: 150px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-custom:hover{
+    background-color:white;
+    color: black;
+    border-color:black;
+}
+
+/* Estilos para la tabla */
+.table thead {
+    background-color: #002147;
+    color: white;
+    text-align: center;
+}
+
+.table td, .table th {
+    text-align: center;
+}
+
+/* Botón Editar */
+.btn-edit {
+    background-color: #00AEEF;
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+    .btn-edit:hover {
+        background-color: #0086c7;
+        transform: scale(1.1);
+    }
+
+/* Botón Eliminar */
+.btn-delete {
+    background-color: #E74C3C;
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+    .btn-delete:hover {
+        background-color: #c0392b;
+        transform: scale(1.1);
+    }

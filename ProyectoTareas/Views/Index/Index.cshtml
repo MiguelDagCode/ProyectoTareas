@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+    string usuario = "Miguel Angel Dagache Aquino"; // Puedes cambiar el nombre dinámicamente desde la sesión o base de datos
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Tareas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Estilos/EstilosIndex.css" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- Barra de Navegación -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index","Index")">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Registrar","Registrar")">Registrar Tareas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Consultar","Consultar")">Consultar Tareas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Administrar","Administrar")">Administrar Tareas</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido -->
+    <div class="container text-center mt-4">
+        <p class="welcome-text">Bienvenido Sr: @usuario</p>
+        <img src="~/Imagenes/logo.png" alt="Cibertec Logo" width="200">
+        <p>Bienvenido a la plataforma del estudiante!! En donde podrás <strong>REGISTRAR</strong>, <strong>CONSULTAR</strong> y <strong>ADMINISTRAR</strong> sus tareas</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
